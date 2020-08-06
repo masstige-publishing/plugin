@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>slick-headline-news</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="./slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+  <link rel="stylesheet" href="./assets/css/slick-headline-news.min.css">
+  <style type="text/css">
+
+    @font-face {
+      font-family: 'Noto Sans KR';
+      font-style: normal;
+      font-weight: 300;
+      src: url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2') format("woff2"),
+      url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff') format("woff"),
+      url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf') format("opentype");
+    }
+
+    @font-face {
+      font-family: 'Noto Sans KR';
+      font-style: normal;
+      font-weight: 400;
+      src: url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2') format("woff2"),
+      url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff') format("woff"),
+      url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf') format("opentype");
+    }
+
+    @font-face {
+      font-family: 'Noto Sans KR';
+      font-style: normal;
+      font-weight: 500;
+      src: url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2') format("woff2"),
+      url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff') format("woff"),
+      url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf') format("opentype");
+    }
+
+    @font-face {
+      font-family: 'Noto Sans KR';
+      font-style: normal;
+      font-weight: 700;
+      src: url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2') format("woff2"),
+      url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff') format("woff"),
+      url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf') format("opentype");
+    }
+
+
+    * {
+      box-sizing:border-box
+    }
+
+    html, body , *{
+      margin: 0;
+      padding: 0;
+    }
+
+    html{
+      font-weight: 300;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 16px;
+    }
+
+    @media (max-width:1024px){
+      html{font-size: 13px;}
+    }
+
+    .wrapper{
+      max-width:1230px;
+      margin:0 auto;
+      width:100%;
+      position: relative;
+    }
+
+    a{
+      text-decoration: none;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <pre style="line-height: 1.5; font-family: inherit;">
+      <h2>slick-headlin-news</h2>
+      2020-08-06 banghg      
+
+      메인비주얼하단에서 주로 사용되는
+      공지사항 2단 노출 slick(#slick) / 1단 노출 slick (#slick_single) 입니다.
+      모바일에서는 2줄씩 노출되는 형태로 변경됩니다.
+    </pre>
+  </div>
+
+
+  <section class="headline-news">
+    <div class="wrapper">
+
+      <div class="headline-news__wrap">
+        <div class="headline-news__title">
+          NOTICE
+        </div>
+        <div class="headline-news__content">
+          <div class="headline-news__slick">
+            <div class="slick" id="slick">
+
+              <div class="item">
+                <a class="wrap" href="#none">
+                  <p class="tit">1 공지사항입니다. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint voluptas ipsam voluptatem dignissimos in consectetur dolorum ea nulla, adipisci eius.</p>
+                  <span class="date">2020.08.06</span>
+                </a>
+              </div>
+
+              <div class="item">
+                <a class="wrap" href="#none">
+                  <p class="tit">2 공지사항입니다.</p>
+                  <span class="date">2020.08.06</span>
+                </a>
+              </div>
+
+              <div class="item">
+                <a class="wrap" href="#none">
+                  <p class="tit">3 공지사항입니다.</p>
+                  <span class="date">2020.08.06</span>
+                </a>
+              </div>
+
+            </div>
+          </div>
+          <div class="arr_bx" id="slick_arr"></div>
+        </div>
+      </div>      
+    </div>
+  </section>
+  
+  
+  <hr style="margin: 50px 0;">
+  
+  
+  <section class="headline-news">
+    <div class="wrapper">
+      <div class="headline-news__wrap">
+        <!-- <div class="headline-news__title">
+          NOTICE
+        </div> -->
+        <div class="headline-news__content">
+          <div class="headline-news__slick">
+            <div class="slick" id="slick_single">
+              
+              <div class="item">
+                <a class="wrap" href="#none">
+                  <p class="tit">1 공지사항입니다. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint voluptas ipsam voluptatem dignissimos in consectetur dolorum ea nulla, adipisci eius.</p>
+                  <span class="date">2020.08.06</span>
+                </a>
+              </div>
+              
+              <div class="item">
+                <a class="wrap" href="#none">
+                  <p class="tit">2 공지사항입니다.</p>
+                  <span class="date">2020.08.06</span>
+                </a>
+              </div>
+              
+              <div class="item">
+                <a class="wrap" href="#none">
+                  <p class="tit">3 공지사항입니다.</p>
+                  <span class="date">2020.08.06</span>
+                </a>
+              </div>
+              
+            </div>
+          </div>
+          <div class="arr_bx" id="slick_single_arr"></div>
+        </div>
+      </div>      
+    </div>
+  </section>
+
+
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+  <script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    $('.headline-news__slick #slick').slick({
+      rows          : 2,
+      slidesPerRow  : 1,
+      infinite      : true,
+      vertical      : true,
+      dots          : false,
+      arrows        : true,
+      appendArrows  : '#slick_arr',
+      prevArrow     : '<button class="arr_prev" title="이전슬라이드"><i class="xi-angle-up-thin"></i></button>',
+      nextArrow     : '<button class="arr_next" title="다음슬라이드"><i class="xi-angle-down-thin"></i></button>',
+      responsive : [{
+        breakpoint : 1025,
+        settings:{
+          rows        : 1,
+          slidesToShow: 2,
+          prevArrow   : '<button class="arr_prev" title="이전슬라이드"><i class="xi-angle-left-thin"></i></button>',
+          nextArrow   : '<button class="arr_next" title="다음슬라이드"><i class="xi-angle-right-thin"></i></button>',
+        }
+      }]
+    })
+
+    $('.headline-news__slick #slick_single').slick({
+      // rows          : 1,
+      // slidesPerRow  : 1,
+      infinite      : true,
+      vertical      : true,
+      dots          : false,
+      arrows        : true,
+      appendArrows  : '#slick_single_arr',
+      prevArrow     : '<button class="arr_prev" title="이전슬라이드"><i class="xi-angle-up-thin"></i></button>',
+      nextArrow     : '<button class="arr_next" title="다음슬라이드"><i class="xi-angle-down-thin"></i></button>',
+      responsive : [{
+        breakpoint : 1025,
+        settings:{
+          // rows        : 1,
+          slidesToShow: 2,
+          prevArrow   : '<button class="arr_prev" title="이전슬라이드"><i class="xi-angle-left-thin"></i></button>',
+          nextArrow   : '<button class="arr_next" title="다음슬라이드"><i class="xi-angle-right-thin"></i></button>',
+        }
+      }]
+    })
+  </script>
+
+</body>
+</html>

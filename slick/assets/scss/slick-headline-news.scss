@@ -1,0 +1,203 @@
+$mediaquery: 1024px;
+
+$bg_color: rgba(115, 57, 223,0.2);
+$text_color: #222;
+$title_color: rgb(115, 57, 223);
+$border_color: rgba(115, 57, 223,0.5);
+$arr_width: 50px; // 화살표 width 값
+$arr_height: 40px; // pc 슬라이드 높이 + 화살표 높이
+$arr_height_m: 30px; //모바일 화살표 w/h + 제목높이
+
+.headline-news {
+  background-color: $bg_color;
+  &,
+  a {
+    color: $text_color;
+  }
+
+  @media all and (min-width: $mediaquery + 0.2) {
+    &__wrap {
+      display: flex;
+      // width:100%;
+      // align-items: center;
+      justify-content: space-between;
+    }
+
+    // #TODO  :  2020-08-06 18:38:20 banghg
+    // &__title, &__content
+    // flex 내공이 부족해서 각 영역을 width지정으로 처리합니다. 
+    // 좋은 처리방법이 있으면 PR 바랍니다.
+    $title_pc_width: 140px; //pc 제목영역
+
+    &__title {
+      align-self: stretch;
+      display: inline-flex;
+      align-items: center;
+      background-color: darken($bg_color, 10%);
+      width: $title_pc_width;
+    }
+    &__content {
+      min-width: calc(100% - #{$title_pc_width});
+      position: relative;
+    }
+    // #TODO - END  :  2020-08-06 18:38:20 banghg
+
+    &__slick {
+      #slick{
+        // 2단으로 노출되는 slick에만 적용합니다.
+        .item {
+          width: 50% !important;
+          border-right: 1px solid rgba($text_color, 0.2);
+          float: left;
+        }
+        .slick-slide > div:nth-child(2) .item {
+          border-right: 0;
+        }
+      }
+    }
+  } //1025~
+
+  &__title {
+    letter-spacing: -0.05em;
+    white-space: nowrap;
+    color: $title_color;
+    text-align: left;
+    font-size: 1.9em;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &__content {
+    line-height: $arr_height * 2;
+    padding-right: $arr_width;
+    text-align: left;
+  }
+
+  &__slick {
+    position: relative;
+    .wrap {
+      width: 100%;
+      padding: 0 50px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      //아이콘생략
+      // &:after{
+      //   font-family: 'xeicon';
+      //   content:'\e940';
+      //   text-align: center;
+      //   display:inline-flex;
+      //   align-items: center;
+      //   justify-content: center;
+      //   margin-left:0.2em;
+      //   width: 45px;
+      //   line-height: 43px;
+      //   border:1px solid $text_color;
+      //   font-size: 20px;
+      //   border-radius: 50%;
+      //   text-indent:0.14em;
+      //   color:$text_color;
+      // }
+      &:hover {
+        .tit {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .date {
+      font-weight: 300;
+      margin-left: 1em;
+      opacity: 0.8;
+    }
+    .tit {
+      font-size: 1.1em;
+      margin-right: auto;
+      text-overflow: ellipsis;
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+      display: block;
+    }
+  }
+
+  .arr_bx {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-left: 1px solid rgba($border_color, 0.2);
+    border-right: 1px solid rgba($border_color, 0.2);
+    text-align: center;
+    font-size: 0;
+    button {
+      &.arr_prev {
+        border-bottom: 1px solid rgba($border_color, 0.2);
+      }
+      border: 0;
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: $arr_width;
+      height: $arr_height;
+      font-size: $arr_height/2.5;
+      color: $text_color;
+    }
+  }
+
+  @media all and (max-width: $mediaquery) {
+    padding: 20px 15px;
+    position: relative;
+
+    &__title {
+      height: $arr_height_m;
+      align-items: center;
+      display: flex;
+    }
+
+    &__content {
+      line-height: 1;
+      padding: 0;
+      border-top: 1px solid rgba(#fff, 0.2);
+      margin-top: 15px;
+      padding-top: 15px;
+    }
+
+    &__slick {
+      .wrap {
+        padding: 10px 0;
+        //아이콘 생략
+        // &:after{
+        //   content:"\e913";
+        //   $cir:25px;
+        //   width: $cir;
+        //   color:$bg_color;
+        //   background-color:#fff;
+        //   line-height: ($cir - 2px);
+        //   font-size:  ($cir/2);
+        //   text-indent: 0;
+        // }
+      }
+    }
+
+    .arr_bx {
+      position: absolute;
+      right: 0; //15px;
+      top: 0;
+      border: 1px solid rgba($border_color, 0.2);
+      button {
+        border: 0;
+        float: left;
+        width: $arr_height_m;
+        height: $arr_height_m;
+        font-size: $arr_height_m/2.5;
+        &.arr_prev {
+          border: 0;
+          border-right: 1px solid rgba($border_color, 0.2);
+        }
+      }
+    }
+  }
+}
