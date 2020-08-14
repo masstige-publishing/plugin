@@ -1,0 +1,69 @@
+.slick-paging-ctrl {
+  font-size: 0;
+  position: relative;
+  border: 20px solid #ddd;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 0 auto;
+  max-width: 840px;
+  width: 100%;
+}
+.slick-paging-ctrl .slick {
+  margin-bottom: 0;
+}
+.slick-paging-ctrl .slick-ctrl {
+  position: absolute;
+  width: 100%;
+  bottom: 30px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slick-paging-ctrl .slick-ctrl .slick-ctrl-paging {
+  margin-right: 0.5em;
+}
+.slick-paging-ctrl .slick-ctrl .slick-dots {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: auto;
+  right: auto;
+  left: auto;
+  bottom: auto;
+}
+.slick-paging-ctrl .slick-ctrl .slick-dots li {
+  width: auto;
+  height: auto;
+  margin: 0 8px;
+}
+.slick-paging-ctrl .slick-ctrl .slick-dots li.slick-active button {
+  opacity: 1;
+}
+.slick-paging-ctrl .slick-ctrl .slick-dots li button {
+  margin: 0;
+  padding: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.5;
+}
+.slick-paging-ctrl .slick-ctrl .slick-dots li button:before {
+  content: none;
+}
+.slick-paging-ctrl .slick-ctrl .btn {
+  background-color: transparent;
+  opacity: 0.8;
+  color: #fff;
+  border: 1px solid #fff;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.slick-paging-ctrl .slick-ctrl .btn.on {
+  display: inline-flex;
+}
