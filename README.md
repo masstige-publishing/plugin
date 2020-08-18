@@ -3,7 +3,7 @@
 
 ## slick
 - slick-headline-news 
-[바로가기](https://masstige-publishing.github.io/plugin/slick/slick-headline-news.html)\
+[바로가기](https://masstige-publishing.github.io/plugin/slick/slick-headline-news.html)
 
 
 - slick-paging-ctrl 
