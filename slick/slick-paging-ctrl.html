@@ -1,78 +1,182 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>slick-paging-ctrl</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" type="text/css" href="./slick/slick.css">
-  <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-  <link rel="stylesheet" href="./assets/css/layout.css">
-  <link rel="stylesheet" href="./assets/css/slick-paging-ctrl.css">
-</head>
-<body>
-  <div class="wrapper">
-    <pre style="line-height: 1.5; font-family: inherit;">
-      <h1>slick-paging-ctrl</h1>
-      2020-08-14 12:49 banghg
-      paging + progress(수평디자인) + pause/play 버튼
-
-
-    </pre>
-  </div>
-
-  <hr style="margin: 50px 0;">
-
-  <h2>paging + pause/play 버튼</h2>
-  <div style="text-align:center;">
-    <div class="slick-paging-ctrl">
-      <div id="slick" class="slick">
-        <div class="item"><img src="./assets/images/mv1.jpg" alt=""></div>
-        <div class="item"><img src="./assets/images/mv2.jpg" alt=""></div>
-        <div class="item"><img src="./assets/images/mv3.jpg" alt=""></div>
+  <head>
+    <title>slick-paging-ctrl</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="./slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"/>
+    <link rel="stylesheet" href="./assets/css/layout.css" />
+    <link rel="stylesheet" href="./assets/css/slick-paging-ctrl.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div>
+        <h1>slick-paging-ctrl</h1>
+        2020-08-18 11:37 banghg<br />
+        <b>slick with paging/progress/ctrlbtn</b>
       </div>
-      <div class="slick-ctrl">
-        <div class="slick-ctrl-paging">
-        </div>
-        <div class="slick-ctrl-btn">
-          <button type="button" data-ctrl="play" class="btn"><i class="xi-play"></i></button>
-          <button type="button" data-ctrl="pause" class="btn on"><i class="xi-pause"></i></button>
+
+      <hr style="margin: 50px 0;" />
+
+      <h2>paging + ctrl btn</h2>
+      <div style="text-align: center;">
+        <div class="slick-paging-ctrl" id="slick1_wrap">
+          <div id="slick1" class="slick">
+            <div class="item"><img src="./assets/images/mv1.jpg" alt="" /></div>
+            <div class="item"><img src="./assets/images/mv2.jpg" alt="" /></div>
+            <div class="item"><img src="./assets/images/mv3.jpg" alt="" /></div>
+          </div>
+          <div class="slick-ctrl">
+            <div class="slick-ctrl-paging"></div>
+            <div class="slick-ctrl-btn">
+              <button type="button" data-ctrl="play" class="btn" title="재생"><i class="xi-play"></i></button>
+              <button type="button" data-ctrl="pause" class="btn on" title="일시정지"><i class="xi-pause"></i></button>
+            </div>
+          </div>
         </div>
       </div>
+      <hr style="margin: 50px 0;" />
+
+      <h2>progress (per 1 slide)</h2>
+      <div style="text-align: center;">
+        <div class="slick-paging-ctrl" id="slick2_wrap">
+          <div id="slick2" class="slick">
+            <div class="item"><img src="./assets/images/mv1.jpg" alt="" /></div>
+            <div class="item"><img src="./assets/images/mv2.jpg" alt="" /></div>
+            <div class="item"><img src="./assets/images/mv3.jpg" alt="" /></div>
+          </div>
+          <div class="progressBar_wrap">
+            <span class="progressBar on"></span>
+          </div>
+        </div>
+      </div>
+
+      <hr style="margin: 50px 0;" />
+
+      <h2>paging as progress + ctrl btn</h2>
+      <div style="text-align: center;">
+        <div class="slick-paging-ctrl" id="slick3_wrap">
+          <div id="slick3" class="slick">
+            <div class="item"><img src="./assets/images/mv1.jpg" alt="" /></div>
+            <div class="item"><img src="./assets/images/mv2.jpg" alt="" /></div>
+            <div class="item"><img src="./assets/images/mv3.jpg" alt="" /></div>
+          </div>
+
+          <div class="slick-ctrl">
+            <div class="slick-ctrl-paging"></div>
+            <div class="slick-ctrl-btn">
+              <button type="button" data-ctrl="play" class="btn" title="재생"><i class="xi-play"></i></button>
+              <button type="button" data-ctrl="pause" class="btn on" title="일시정지"><i class="xi-pause"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr style="margin: 50px 0;" />
     </div>
-  </div>
 
-  <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-  <script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-  var slick_1 = $('.slick-paging-ctrl #slick');
-    slick_1.slick({
-      autoplay: true,
-      autoplaySpeed: 2000,
-      speed: 1000,
-      infinite      : true,
-      fade : true,
-      dots          : true,
-      arrows        : false,
-      appendDots  : '.slick-paging-ctrl .slick-ctrl-paging',      
-      pauseOnFocus : false,
-      pauseOnHover : false,
-      // prevArrow     : '<button class="arr_prev" title="이전슬라이드"><i class="xi-angle-up-thin"></i></button>',
-      // nextArrow     : '<button class="arr_next" title="다음슬라이드"><i class="xi-angle-down-thin"></i></button>',
-    })
+    <script
+      src="https://code.jquery.com/jquery-2.2.0.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="./slick/slick.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+    <script type="text/javascript">
+      var slick_1 = $("#slick1");
+      slick_1.slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
+        speed: 1000,
+        infinite: true,
+        fade: true,
+        dots: true,
+        arrows: true,
+        appendDots: "#slick1_wrap .slick-ctrl-paging",
+        pauseOnFocus: false,
+        pauseOnHover: false,
+        // prevArrow     : '<button class="arr_prev" title="이전슬라이드"><i class="xi-angle-up-thin"></i></button>',
+        // nextArrow     : '<button class="arr_next" title="다음슬라이드"><i class="xi-angle-down-thin"></i></button>',
+      });
 
-    $('.slick-paging-ctrl .slick-ctrl-btn .btn[data-ctrl="pause"]').click(function() {
-      console.log('pause');
-      $('.slick-paging-ctrl .slick-ctrl-btn .btn').toggleClass('on');
-      slick_1.slick('slickPause');
-    });
-    $('.slick-paging-ctrl .slick-ctrl-btn .btn[data-ctrl="play"]').click(function() {
-      console.log('play');
-      $('.slick-paging-ctrl .slick-ctrl-btn .btn').toggleClass('on');
-      slick_1.slick('slickPlay');
-    });
+      $('#slick1_wrap .btn[data-ctrl="pause"]').click(function () {
+        $("#slick1_wrap .btn").toggleClass("on");
+        slick_1.slick("slickPause");
+      });
+      $('#slick1_wrap .btn[data-ctrl="play"]').click(function () {
+        $("#slick1_wrap .btn").toggleClass("on");
+        slick_1.slick("slickPlay");
+      });
 
-  </script>
+      var slick_2 = $("#slick2");
+      var slick_2_time = 3800;
+      slick_2.slick({
+        autoplay: true,
+        autoplaySpeed: slick_2_time,
+        speed: 200,
+        infinite: true,
+        fade: false,
+        dots: true,
+        arrows: true,
+        pauseOnFocus: false,
+        pauseOnHover: false,
+      });
+      slick_2.on("beforeChange", function (event, slick) {
+        $(".progressBar").removeClass("on");
+      });
+      slick_2.on("setPosition afterChange", function (event, slick) {
+        $(".progressBar").addClass("on");
+        $(".progressBar").css({ "animation-duration": slick_2_time + "ms" });
+      });
 
-</body>
+      var slick_3 = $("#slick3");
+      var slick_3_time = 3000;
+      slick_3.slick({
+        autoplay: true,
+        autoplaySpeed: slick_3_time,
+        speed: 1000,
+        infinite: true,
+        fade: true,
+        dots: true,
+        arrows: true,
+        appendDots: "#slick3_wrap .slick-ctrl-paging",
+        dotsClass: "slick-dots-progress",
+        pauseOnFocus: false,
+        pauseOnHover: false,
+      });
+
+      slick_3.on("beforeChange", function (event, slick) {
+        $("#slick3_wrap .slick-dots-progress button").css({
+          width: "0",
+          "transition-duration": "0ms",
+        });
+      });
+      slick_3.on("setPosition afterChange", function (event, slick) {
+        $("#slick3_wrap .slick-dots-progress .slick-active button").css({
+          "transition-duration": slick_3_time + "ms",
+          width: "100%",
+        });
+      });
+      $('#slick3_wrap .btn[data-ctrl="pause"]').click(function () {
+        $("#slick3_wrap .btn").toggleClass("on");
+        slick_3.slick("slickPause");
+        $("#slick3_wrap .slick-dots-progress button").css({
+          width: "0",
+          "transition-duration": "0ms",
+        });
+      });
+      $('#slick3_wrap .btn[data-ctrl="play"]').click(function () {
+        $("#slick3_wrap .btn").toggleClass("on");
+        slick_3.slick("slickPlay");
+        $("#slick3_wrap .slick-dots-progress .slick-active button").css({
+          "transition-duration": slick_3_time + "ms",
+          width: "100%",
+        });
+      });
+    </script>
+  </body>
 </html>
