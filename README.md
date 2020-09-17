@@ -9,5 +9,5 @@
 - slick-paging-ctrl 
 [바로가기](https://masstige-publishing.github.io/plugin/slick/slick-paging-ctrl.html)
 
-## swipter
--추가예정입니다
+## swiper
+- 추가예정입니다
