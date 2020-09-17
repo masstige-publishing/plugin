@@ -10,4 +10,4 @@
 [바로가기](https://masstige-publishing.github.io/plugin/slick/slick-paging-ctrl.html)
 
 ## swiper
-- 추가예정입니다
+- 추가예정입니다.
