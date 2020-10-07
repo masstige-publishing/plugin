@@ -38,13 +38,6 @@
 							</div>
 
 							<div class="swiper-slide item">
-								3 영상
-								<div class="embed-responsive embed-responsive-16by9">
-									<video src="./assets/video/video.mp4" autoplay muted loop class="main-video"></video>
-								</div>
-							</div>
-
-							<div class="swiper-slide item">
 								4 이미지
 								<img src="//via.placeholder.com/1600x900" class="w-100" alt="" />
 							</div>
@@ -61,43 +54,55 @@
 
 			<hr style="margin: 50px 0" />
 
+			<div class="container border py-2 mb-5">
+				<h2 class="script"></h2>
 <pre>
-<script type="text/javascript">
-	var swiper = new Swiper('.main_slider .swiper-container', {
-		effect: 'fade',
-		loop: true,
-		speed: 600,
-		autoplay: {
-			delay: 300,//15000,
-			disableOnInteraction: false,
-		},
-		fadeEffect: {
-			crossFade: true,
-		},
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
-		pagination: {
-			el: '.swiper-pagination',
-			type: 'bullets',
-			clickable: 'false',
-		},
-		on: {
-			slideChange: function (swiper) {
-				if (this.realIndex == 0) {
-					this.params.autoplay['delay'] = 15000;
-					document.getElementsByClassName('main-video')[0].play();
-				} else {
-					this.params.autoplay['delay'] = 3000;
-					document.getElementsByClassName('main-video')[0].pause();
-					document.getElementsByClassName('main-video')[0].currentTime = 0;
+var swiper = new Swiper('.main_slider .swiper-container', {
+	effect: 'fade',
+	loop: true,
+	speed: 600,
+	autoplay: {
+		delay: 15000, //첫장이 이미지일땐 default, 영상일땐 영상 길이만큼 설정
+		disableOnInteraction: false,
+	},
+	fadeEffect: {
+		crossFade: true,
+	},
+	navigation: {
+		nextEl: '.swiper-button-next',
+		prevEl: '.swiper-button-prev',
+	},
+	pagination: {
+		el: '.swiper-pagination',
+		type: 'bullets',
+		clickable: 'false',
+	},
+	on: {
+		slideChange: function(swiper){
+			var videoCount = document.getElementsByClassName('main-video').length;
+
+			if ( this.realIndex == 0 ) { //영상이 있는 슬라이드의 index 넣어야 잘 돌아갈 예정....ㅠㅠ
+				this.params.autoplay['delay'] = 15000; // 영상 길이.
+
+				for (var i=0; i&lt;videoCount; i++) {
+					document.getElementsByClassName('main-video')[i].play();
 				}
-			},
-		},
-	});
-</script>
+			} 
+			else {
+				this.params.autoplay['delay'] = 3000;
+				
+				for (var i=0; i&lt;videoCount; i++) {
+					document.getElementsByClassName('main-video')[i].pause();
+					document.getElementsByClassName('main-video')[i].currentTime = 0;
+				}
+			}
+		}
+	},
+});
 </pre>
+			</div>
+
+
 		</div>
 
 		<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
@@ -108,7 +113,7 @@
 				loop: true,
 				speed: 600,
 				autoplay: {
-					delay: 300,//15000,
+					delay: 15000, //첫장이 이미지일땐 default, 영상일땐 영상 길이만큼 설정
 					disableOnInteraction: false,
 				},
 				fadeEffect: {
@@ -124,16 +129,25 @@
 					clickable: 'false',
 				},
 				on: {
-					slideChange: function (swiper) {
-						if (this.realIndex == 0) {
-							this.params.autoplay['delay'] = 15000;
-							document.getElementsByClassName('main-video')[0].play();
-						} else {
+					slideChange: function(swiper){
+						var videoCount = document.getElementsByClassName('main-video').length;
+
+						if ( this.realIndex == 0 ) { //영상이 있는 슬라이드의 index 넣어야 잘 돌아갈 예정....ㅠㅠ
+							this.params.autoplay['delay'] = 15000; // 영상 길이.
+
+							for (var i=0; i<videoCount; i++) {
+								document.getElementsByClassName('main-video')[i].play();
+							}
+						} 
+						else {
 							this.params.autoplay['delay'] = 3000;
-							document.getElementsByClassName('main-video')[0].pause();
-							document.getElementsByClassName('main-video')[0].currentTime = 0;
+							
+							for (var i=0; i<videoCount; i++) {
+								document.getElementsByClassName('main-video')[i].pause();
+								document.getElementsByClassName('main-video')[i].currentTime = 0;
+							}
 						}
-					},
+					}
 				},
 			});
 		</script>
