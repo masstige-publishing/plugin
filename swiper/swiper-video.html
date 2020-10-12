@@ -28,13 +28,20 @@
 							<div class="swiper-slide item">
 								1 영상
 								<div class="embed-responsive embed-responsive-16by9">
-									<video src="./assets/video/video.mp4" autoplay muted loop class="main-video"></video>
+									<video src="./assets/video/video.mp4" controls autoplay muted class="main-video"></video>
 								</div>
 							</div>
 
 							<div class="swiper-slide item">
 								2 이미지
 								<img src="//via.placeholder.com/1600x900" class="w-100" alt="" />
+							</div>
+
+							<div class="swiper-slide item">
+								3 영상
+								<div class="embed-responsive embed-responsive-16by9">
+									<video src="./assets/video/about2.mp4" controls autoplay muted class="main-video"></video>
+								</div>
 							</div>
 
 							<div class="swiper-slide item">
@@ -62,7 +69,7 @@ var swiper = new Swiper('.main_slider .swiper-container', {
 	loop: true,
 	speed: 600,
 	autoplay: {
-		delay: 15000, //첫장이 이미지일땐 default, 영상일땐 영상 길이만큼 설정
+		delay: 6000, //첫장이 이미지일땐 default, 영상일땐 영상 길이만큼 설정
 		disableOnInteraction: false,
 	},
 	fadeEffect: {
@@ -79,22 +86,32 @@ var swiper = new Swiper('.main_slider .swiper-container', {
 	},
 	on: {
 		slideChange: function(swiper){
-			var videoCount = document.getElementsByClassName('main-video').length;
+			// swiper 내장 변수인 activeIndex 값을 활용함.
+			// swiper 내장 배열인 slides 변수에 activeIndex 에 해당하는 값을 불러온 후 jquery 객체로 select함.
+			// select된 jquery 객체 내부에 video 태그가 있는지 확인 후 있는 경우 아래 if 문 실행.
+			if( $(this.slides[this.activeIndex]).find('video').length ) {
+				// 해당 슬라이드 내 video의 영상 길이값 저장.
+				var videoDuration = $(this.slides[this.activeIndex]).find('video').get(0).duration;
+				// 저장된 길이만큼 autoplay의 delay 값을 변경해줌.
+				// 반환값이 seconds 단위 이기 때문에 milliseconds 단위로 변경.
+				this.params.autoplay['delay'] = videoDuration * 1000;
 
-			if ( this.realIndex == 0 ) { //영상이 있는 슬라이드의 index 넣어야 잘 돌아갈 예정....ㅠㅠ
-				this.params.autoplay['delay'] = 15000; // 영상 길이.
-
-				for (var i=0; i&lt;videoCount; i++) {
-					document.getElementsByClassName('main-video')[i].play();
+				// video 실행.
+				$(this.slides[this.activeIndex]).find('video').get(0).play();
+			} else {
+				// swiper 내장 변수인 previousIndex 값 활용함.
+				// 이전 슬라이드(previousIndex)에 video 태그가 있었는지 확인 후 있는 경우 아래 if 문 실행.
+				if ( $(this.slides[this.previousIndex]).find('video').length ) {
+					$(this.el).find('video').each(function(){
+						// video 일시정지, video 태그에는 stop() 함수가 없음.
+						$(this).get(0).pause();
+						// pause() 실행 후 재생된 시간 초기화.
+						$(this).get(0).currentTime = 0;
+					});
 				}
-			} 
-			else {
+
+				// video 가 없는 경우 autoplay의 delay값 변경.
 				this.params.autoplay['delay'] = 3000;
-				
-				for (var i=0; i&lt;videoCount; i++) {
-					document.getElementsByClassName('main-video')[i].pause();
-					document.getElementsByClassName('main-video')[i].currentTime = 0;
-				}
 			}
 		}
 	},
@@ -104,52 +121,9 @@ var swiper = new Swiper('.main_slider .swiper-container', {
 
 
 		</div>
-
+		swiper/assets/js/
 		<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
 		<script src="./assets/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
-			var swiper = new Swiper('.main_slider .swiper-container', {
-				effect: 'fade',
-				loop: true,
-				speed: 600,
-				autoplay: {
-					delay: 15000, //첫장이 이미지일땐 default, 영상일땐 영상 길이만큼 설정
-					disableOnInteraction: false,
-				},
-				fadeEffect: {
-					crossFade: true,
-				},
-				navigation: {
-					nextEl: '.swiper-button-next',
-					prevEl: '.swiper-button-prev',
-				},
-				pagination: {
-					el: '.swiper-pagination',
-					type: 'bullets',
-					clickable: 'false',
-				},
-				on: {
-					slideChange: function(swiper){
-						var videoCount = document.getElementsByClassName('main-video').length;
-
-						if ( this.realIndex == 0 ) { //영상이 있는 슬라이드의 index 넣어야 잘 돌아갈 예정....ㅠㅠ
-							this.params.autoplay['delay'] = 15000; // 영상 길이.
-
-							for (var i=0; i<videoCount; i++) {
-								document.getElementsByClassName('main-video')[i].play();
-							}
-						} 
-						else {
-							this.params.autoplay['delay'] = 3000;
-							
-							for (var i=0; i<videoCount; i++) {
-								document.getElementsByClassName('main-video')[i].pause();
-								document.getElementsByClassName('main-video')[i].currentTime = 0;
-							}
-						}
-					}
-				},
-			});
-		</script>
+		<script src="./assets/js/video-autoplay.js" type="text/javascript" charset="utf-8"></script>	
 	</body>
 </html>
