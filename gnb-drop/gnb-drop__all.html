@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/gnb_drop.css" crossorigin="anonymous" />
+  </head>
+
+  <body>
+    <pre class="p-5">
+gnb drop 형태에 따른 scss, script preset 
+1. gnbdrop--line : 1줄로 노출
+2. gnbdrop--box : 일반적인 드롭다운
+3. gnbdrop--all : 전체 노출
+</pre
+    >
+    <!-- S : 네비게이션 탭 -->
+    <? include "include/tab.html" ?>
+    <!-- E : 네비게이션 탭 -->
+    <div class="header">
+      <h1>gnbdrop--all</h1>
+      <div class="gnb gnbdrop--all">
+        <div class="gnbdrop__bg"></div>
+        <? include "include/nav.html" ?>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="js/gnb_drop.js"></script>
+  </body>
+</html>
